@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>楚天镜 - 可编辑预览页</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="loginView" class="view">
+    <div class="login-card">
+      <h1>登录楚天镜</h1>
+      <form id="loginForm">
+        <label for="username">账户</label>
+        <input id="username" type="text" placeholder="仅支持账户：qazwsx1995" autocomplete="username" required />
+        <label for="password">密码</label>
+        <input id="password" type="password" placeholder="可留空" autocomplete="current-password" />
+        <button type="submit">登录</button>
+        <p class="hint">仅允许账户 <strong>qazwsx1995</strong> 登录（前端校验示例）</p>
+      </form>
+    </div>
+  </div>
+
+  <div id="appView" class="view hidden">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo">楚</span>
+        <span class="title">楚天镜 - 可编辑预览页</span>
+      </div>
+      <div class="toolbar">
+        <label class="toggle">
+          <input type="checkbox" id="editToggle" />
+          <span>编辑模式</span>
+        </label>
+        <button id="saveBtn">保存</button>
+        <button id="exportBtn">导出JSON</button>
+        <button id="importBtn">导入JSON</button>
+        <input id="importFile" type="file" accept="application/json" class="hidden" />
+        <button id="resetBtn" class="danger">重置为默认</button>
+        <button id="logoutBtn">登出</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="hero card">
+        <h1 id="heroTitle" data-editable>楚天镜智能风控系统</h1>
+        <p id="heroSubtitle" data-editable>一个可部署、可在线编辑预览的单页示例。登录后可在页面中直接修改内容并本地保存。</p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2 id="section1Title" data-editable>全行资产质量信用风险预警</h2>
+          <div id="section1Body" data-editable>
+            <ul>
+              <li>机构风险预警</li>
+              <li>产品风险预警</li>
+              <li>行业风险预警</li>
+              <li>人员资产质量预警</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 id="section2Title" data-editable>零售信用风险预警</h2>
+          <div id="section2Body" data-editable>
+            <ul>
+              <li>消费金融预警</li>
+              <li>对私普惠预警</li>
+              <li>银行卡预警（卡片状态与交易风险）</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 id="section3Title" data-editable>AI 生成式风险报告</h2>
+          <div id="section3Body" data-editable>
+            <p>整合指标与预警，生成重点领域、趋势与传导分析报告；支持PDF/Excel导出与电子签章（示例未接入）。</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>富文本试验区</h2>
+        <div class="editor-toolbar" id="richToolbar">
+          <button data-cmd="bold"><b>B</b></button>
+          <button data-cmd="italic"><i>I</i></button>
+          <button data-cmd="underline"><u>U</u></button>
+          <button data-cmd="insertUnorderedList">• 列表</button>
+          <button data-cmd="formatBlock" data-value="H2">H2</button>
+          <button data-cmd="formatBlock" data-value="P">正文</button>
+        </div>
+        <div id="richEditor" class="rich-editor" data-editable>
+          在此区域可进行富文本编辑，支持粗体、斜体、下划线与列表。选中内容后点击上方按钮。
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>© 2025 楚天镜（演示页，不包含真实数据）</span>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
